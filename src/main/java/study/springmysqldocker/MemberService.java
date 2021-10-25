@@ -31,7 +31,7 @@ public class MemberService {
     private boolean validateDuplicateMember(Member member, BindingResult result) {
         Optional<Member> findMember = memberRepository.findMemberByName(member.getName());
         if (findMember.isPresent()) {
-            result.addError(new FieldError("member", "memberName", "이미 존재하는 회원입니다."));
+            result.addError(new FieldError("member", "name", "이미 존재하는 회원입니다."));
             return true;
         }
         return false;
